@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the GSB Feature Publication Display feature.
+ */
+
+include_once 'gsb_feature_publication_display.features.inc';
