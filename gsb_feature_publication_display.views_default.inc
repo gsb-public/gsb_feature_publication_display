@@ -7,8 +7,7 @@
 /**
  * Implements hook_views_default_views().
  */
-function gsb_feature_publication_display_views_default_views()
-{
+function gsb_feature_publication_display_views_default_views() {
   $export = array();
 
   $view = new view();
@@ -56,21 +55,21 @@ function gsb_feature_publication_display_views_default_views()
   $handler->display->display_options['pager']['options']['use_go_to_top_text'] = 'Back to the Top';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Apache Solr: sm_field_image_apachesolr */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['sm_field_image_apachesolr']['id'] = 'sm_field_image_apachesolr';
   $handler->display->display_options['fields']['sm_field_image_apachesolr']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['sm_field_image_apachesolr']['field'] = 'sm_field_image_apachesolr';
   $handler->display->display_options['fields']['sm_field_image_apachesolr']['label'] = '';
   $handler->display->display_options['fields']['sm_field_image_apachesolr']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['sm_field_image_apachesolr']['hide_empty'] = TRUE;
-  /* Field: Apache Solr: path */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Apache Solr: label */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['label']['id'] = 'label';
   $handler->display->display_options['fields']['label']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['label']['field'] = 'label';
@@ -78,31 +77,31 @@ function gsb_feature_publication_display_views_default_views()
   $handler->display->display_options['fields']['label']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['label']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['label']['element_label_colon'] = FALSE;
-  /* Field: Apache Solr: sm_field_publisher_apachesolr */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['sm_field_publisher_apachesolr']['id'] = 'sm_field_publisher_apachesolr';
   $handler->display->display_options['fields']['sm_field_publisher_apachesolr']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['sm_field_publisher_apachesolr']['field'] = 'sm_field_publisher_apachesolr';
   $handler->display->display_options['fields']['sm_field_publisher_apachesolr']['label'] = '';
   $handler->display->display_options['fields']['sm_field_publisher_apachesolr']['element_label_colon'] = FALSE;
-  /* Field: Apache Solr: sm_field_date_published_format_month_day */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['sm_field_date_published_format_month_day']['id'] = 'sm_field_date_published_format_month_day';
   $handler->display->display_options['fields']['sm_field_date_published_format_month_day']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['sm_field_date_published_format_month_day']['field'] = 'sm_field_date_published_format_month_day';
   $handler->display->display_options['fields']['sm_field_date_published_format_month_day']['label'] = '';
   $handler->display->display_options['fields']['sm_field_date_published_format_month_day']['element_label_colon'] = FALSE;
-  /* Field: Apache Solr: sm_field_body_apachesolr */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['sm_field_body_apachesolr']['id'] = 'sm_field_body_apachesolr';
   $handler->display->display_options['fields']['sm_field_body_apachesolr']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['sm_field_body_apachesolr']['field'] = 'sm_field_body_apachesolr';
   $handler->display->display_options['fields']['sm_field_body_apachesolr']['label'] = '';
   $handler->display->display_options['fields']['sm_field_body_apachesolr']['element_label_colon'] = FALSE;
-  /* Field: Apache Solr: sm_field_tags_apachesolr */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['sm_field_tags_apachesolr']['id'] = 'sm_field_tags_apachesolr';
   $handler->display->display_options['fields']['sm_field_tags_apachesolr']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['fields']['sm_field_tags_apachesolr']['field'] = 'sm_field_tags_apachesolr';
   $handler->display->display_options['fields']['sm_field_tags_apachesolr']['label'] = '';
   $handler->display->display_options['fields']['sm_field_tags_apachesolr']['element_label_colon'] = FALSE;
-  /* Filter criterion: Apache Solr: bundle */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['bundle']['id'] = 'bundle';
   $handler->display->display_options['filters']['bundle']['table'] = 'apachesolr__acquia_search_server_1';
   $handler->display->display_options['filters']['bundle']['field'] = 'bundle';
@@ -128,7 +127,6 @@ function gsb_feature_publication_display_views_default_views()
   $handler = $view->new_display('panel_pane', 'Publications Solr', 'publications_solr');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['exposed_block'] = TRUE;
-
   $export['publications'] = $view;
 
   $view = new view();
@@ -143,6 +141,7 @@ function gsb_feature_publication_display_views_default_views()
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -400,6 +399,14 @@ function gsb_feature_publication_display_views_default_views()
   $handler = $view->new_display('panel_pane', 'Publications list', 'publications_list');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['exposed_block'] = TRUE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'no results found.';
+  $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
   $handler->display->display_options['argument_input'] = array(
     'field_tag_tid' => array(
       'type' => 'panel',
