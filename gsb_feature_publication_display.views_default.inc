@@ -22,6 +22,7 @@ function gsb_feature_publication_display_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['css_class'] = 'view-list-search';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
@@ -55,6 +56,13 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['pager']['options']['use_go_to_top_text'] = 'Back to the Top';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'no results found.';
+  $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
   /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['sm_field_image_apachesolr']['id'] = 'sm_field_image_apachesolr';
   $handler->display->display_options['fields']['sm_field_image_apachesolr']['table'] = 'apachesolr__acquia_search_server_1';
@@ -146,6 +154,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['exposed_form']['options']['bef'] = array(
@@ -397,6 +406,8 @@ function gsb_feature_publication_display_views_default_views() {
 
   /* Display: Publications list */
   $handler = $view->new_display('panel_pane', 'Publications list', 'publications_list');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'view-list-teaser';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
@@ -412,7 +423,7 @@ function gsb_feature_publication_display_views_default_views() {
       'type' => 'panel',
       'context' => 'entity:field_collection_item.field_cta_action',
       'context_optional' => 0,
-      'panel' => '1',
+      'panel' => '0',
       'fixed' => '',
       'label' => 'Content: Tag (field_tag)',
     ),
@@ -420,6 +431,7 @@ function gsb_feature_publication_display_views_default_views() {
 
   /* Display: publications-by-id */
   $handler = $view->new_display('panel_pane', 'publications-by-id', 'publications_by_id');
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
@@ -469,6 +481,7 @@ function gsb_feature_publication_display_views_default_views() {
 
   /* Display: publications-by-tag */
   $handler = $view->new_display('panel_pane', 'publications-by-tag', 'publications_by_tag');
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';

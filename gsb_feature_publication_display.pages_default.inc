@@ -15,7 +15,7 @@ function gsb_feature_publication_display_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'Publications search page';
   $page->admin_description = '';
-  $page->path = 'publications-search/!keywords';
+  $page->path = 'faculty-research/research/publications/!keywords';
   $page->access = array(
     'plugins' => array(
       0 => array(
