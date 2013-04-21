@@ -20,3 +20,10 @@ features[page_manager_pages][] = publications_search_page
 features[views_view][] = publications
 features[views_view][] = publications_filters
 project path = profiles/gsb_public/modules/custom/features
+
+
+; Information added by drush on 2013-04-20
+version = "master-dev"
+project = "gsb_feature_publication_display"
+datestamp = "1366502920"
+
