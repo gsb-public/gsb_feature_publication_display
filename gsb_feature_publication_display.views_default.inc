@@ -15,7 +15,7 @@ function gsb_feature_publication_display_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'apachesolr__acquia_search_server_1';
-  $view->human_name = 'Publications';
+  $view->human_name = 'Publication search';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
