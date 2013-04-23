@@ -151,6 +151,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['link_display'] = 'custom_url';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -162,7 +163,7 @@ function gsb_feature_publication_display_views_default_views() {
       'allow_secondary' => 0,
       'secondary_label' => 'Advanced options',
     ),
-    'field_academic_area_unlimited_tid' => array(
+    'term_node_tid_depth' => array(
       'bef_format' => 'bef',
       'more_options' => array(
         'bef_select_all_none' => 0,
@@ -174,9 +175,12 @@ function gsb_feature_publication_display_views_default_views() {
             0 => 'global_types',
           ),
         ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
       ),
     ),
-    'field_industry_tid' => array(
+    'term_node_tid_depth_1' => array(
       'bef_format' => 'bef',
       'more_options' => array(
         'bef_select_all_none' => 0,
@@ -188,9 +192,12 @@ function gsb_feature_publication_display_views_default_views() {
             0 => 'global_types',
           ),
         ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
       ),
     ),
-    'field_discipline_tid' => array(
+    'term_node_tid_depth_2' => array(
       'bef_format' => 'bef',
       'more_options' => array(
         'bef_select_all_none' => 0,
@@ -201,6 +208,9 @@ function gsb_feature_publication_display_views_default_views() {
           'available' => array(
             0 => 'global_types',
           ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
         ),
       ),
     ),
@@ -210,7 +220,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['use_go_to_top_link'] = 0;
+  $handler->display->display_options['pager']['options']['use_go_to_top_link'] = 1;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'ds';
   $handler->display->display_options['row_options']['alternating'] = 0;
@@ -219,26 +229,6 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['row_options']['delta_fieldset']['delta_fields'] = array();
   $handler->display->display_options['row_options']['grouping_fieldset']['group_field'] = 'node|created';
   $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'teaser';
-  /* Field: Content: Date Published */
-  $handler->display->display_options['fields']['field_date_published']['id'] = 'field_date_published';
-  $handler->display->display_options['fields']['field_date_published']['table'] = 'field_data_field_date_published';
-  $handler->display->display_options['fields']['field_date_published']['field'] = 'field_date_published';
-  $handler->display->display_options['fields']['field_date_published']['label'] = 'Date posted';
-  $handler->display->display_options['fields']['field_date_published']['element_type'] = 'span';
-  $handler->display->display_options['fields']['field_date_published']['element_label_type'] = 'span';
-  $handler->display->display_options['fields']['field_date_published']['settings'] = array(
-    'format_type' => 'gsb_format_year',
-    'fromto' => 'both',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_repeat_rule' => 'show',
-    'conditions' => array(
-      0 => array(
-        'condition' => '',
-      ),
-    ),
-  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -246,39 +236,6 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Authors */
-  $handler->display->display_options['fields']['field_person_fac_student_other']['id'] = 'field_person_fac_student_other';
-  $handler->display->display_options['fields']['field_person_fac_student_other']['table'] = 'field_data_field_person_fac_student_other';
-  $handler->display->display_options['fields']['field_person_fac_student_other']['field'] = 'field_person_fac_student_other';
-  $handler->display->display_options['fields']['field_person_fac_student_other']['type'] = 'field_collection_fields';
-  $handler->display->display_options['fields']['field_person_fac_student_other']['settings'] = array(
-    'view_mode' => 'research_pager',
-    'conditions' => array(
-      0 => array(
-        'condition' => '',
-      ),
-    ),
-  );
-  $handler->display->display_options['fields']['field_person_fac_student_other']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_person_fac_student_other']['separator'] = '; ';
-  /* Field: Field: Body */
-  $handler->display->display_options['fields']['field_body']['id'] = 'field_body';
-  $handler->display->display_options['fields']['field_body']['table'] = 'field_data_field_body';
-  $handler->display->display_options['fields']['field_body']['field'] = 'field_body';
-  $handler->display->display_options['fields']['field_body']['label'] = '';
-  $handler->display->display_options['fields']['field_body']['alter']['trim_whitespace'] = TRUE;
-  $handler->display->display_options['fields']['field_body']['alter']['max_length'] = '250';
-  $handler->display->display_options['fields']['field_body']['alter']['strip_tags'] = TRUE;
-  $handler->display->display_options['fields']['field_body']['alter']['trim'] = TRUE;
-  $handler->display->display_options['fields']['field_body']['alter']['html'] = TRUE;
-  $handler->display->display_options['fields']['field_body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_body']['settings'] = array(
-    'conditions' => array(
-      0 => array(
-        'condition' => '',
-      ),
-    ),
-  );
   /* Field: Content: All taxonomy terms */
   $handler->display->display_options['fields']['term_node_tid']['id'] = 'term_node_tid';
   $handler->display->display_options['fields']['term_node_tid']['table'] = 'node';
@@ -312,6 +269,116 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['arguments']['field_tag_tid']['table'] = 'field_data_field_tag';
   $handler->display->display_options['arguments']['field_tag_tid']['field'] = 'field_tag_tid';
   $handler->display->display_options['arguments']['field_tag_tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_tag_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'publication' => 'publication',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Has taxonomy terms (with depth) */
+  $handler->display->display_options['filters']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth']['table'] = 'node';
+  $handler->display->display_options['filters']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth']['group'] = 2;
+  $handler->display->display_options['filters']['term_node_tid_depth']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['operator_id'] = 'term_node_tid_depth_op';
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['label'] = 'Academic Area';
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['operator'] = 'term_node_tid_depth_op';
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['identifier'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['term_node_tid_depth']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth']['type'] = 'select';
+  $handler->display->display_options['filters']['term_node_tid_depth']['vocabulary'] = 'academic_area';
+  $handler->display->display_options['filters']['term_node_tid_depth']['error_message'] = FALSE;
+  $handler->display->display_options['filters']['term_node_tid_depth']['depth'] = '10';
+  /* Filter criterion: Content: Has taxonomy terms (with depth) */
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['id'] = 'term_node_tid_depth_2';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['table'] = 'node';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['field'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['group'] = 2;
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['operator_id'] = 'term_node_tid_depth_2_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['label'] = 'Industry';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['operator'] = 'term_node_tid_depth_2_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['identifier'] = 'term_node_tid_depth_2';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['type'] = 'select';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['vocabulary'] = 'industry';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['error_message'] = FALSE;
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['depth'] = '10';
+  /* Filter criterion: Content: Has taxonomy terms (with depth) */
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['id'] = 'term_node_tid_depth_1';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['table'] = 'node';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['field'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['group'] = 2;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['operator_id'] = 'term_node_tid_depth_1_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['label'] = 'Discipline';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['operator'] = 'term_node_tid_depth_1_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['identifier'] = 'term_node_tid_depth_1';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['type'] = 'select';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['vocabulary'] = 'discipline';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['error_message'] = FALSE;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['depth'] = '10';
+
+  /* Display: Publication list */
+  $handler = $view->new_display('panel_pane', 'Publication list', 'publication_list');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'view-list-teaser';
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['exposed_block'] = TRUE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'no results found.';
+  $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Tag (field_tag) */
+  $handler->display->display_options['arguments']['field_tag_tid']['id'] = 'field_tag_tid';
+  $handler->display->display_options['arguments']['field_tag_tid']['table'] = 'field_data_field_tag';
+  $handler->display->display_options['arguments']['field_tag_tid']['field'] = 'field_tag_tid';
+  $handler->display->display_options['arguments']['field_tag_tid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['field_tag_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_tag_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_tag_tid']['summary_options']['items_per_page'] = '25';
@@ -329,95 +396,17 @@ function gsb_feature_publication_display_views_default_views() {
   );
   $handler->display->display_options['arguments']['field_tag_tid']['validate_options']['type'] = 'convert';
   $handler->display->display_options['arguments']['field_tag_tid']['validate']['fail'] = 'ignore';
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'publication' => 'publication',
-  );
-  /* Filter criterion: Content: Academic Area (field_academic_area_unlimited) */
-  $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['id'] = 'field_academic_area_unlimited_tid';
-  $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['table'] = 'field_data_field_academic_area_unlimited';
-  $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['field'] = 'field_academic_area_unlimited_tid';
-  $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['expose']['operator_id'] = 'field_academic_area_unlimited_tid_op';
-  $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['expose']['label'] = 'Academic Area';
-  $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['expose']['operator'] = 'field_academic_area_unlimited_tid_op';
-  $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['expose']['identifier'] = 'field_academic_area_unlimited_tid';
-  $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['expose']['multiple'] = TRUE;
-  $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-    5 => 0,
-  );
-  $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['reduce_duplicates'] = TRUE;
-  $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['vocabulary'] = 'academic_area';
-  /* Filter criterion: Content: Industry (field_industry) */
-  $handler->display->display_options['filters']['field_industry_tid']['id'] = 'field_industry_tid';
-  $handler->display->display_options['filters']['field_industry_tid']['table'] = 'field_data_field_industry';
-  $handler->display->display_options['filters']['field_industry_tid']['field'] = 'field_industry_tid';
-  $handler->display->display_options['filters']['field_industry_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_industry_tid']['expose']['operator_id'] = 'field_industry_tid_op';
-  $handler->display->display_options['filters']['field_industry_tid']['expose']['label'] = 'Industries';
-  $handler->display->display_options['filters']['field_industry_tid']['expose']['operator'] = 'field_industry_tid_op';
-  $handler->display->display_options['filters']['field_industry_tid']['expose']['identifier'] = 'field_industry_tid';
-  $handler->display->display_options['filters']['field_industry_tid']['expose']['multiple'] = TRUE;
-  $handler->display->display_options['filters']['field_industry_tid']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-    5 => 0,
-  );
-  $handler->display->display_options['filters']['field_industry_tid']['reduce_duplicates'] = TRUE;
-  $handler->display->display_options['filters']['field_industry_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_industry_tid']['vocabulary'] = 'industry';
-  /* Filter criterion: Content: Discipline (field_discipline) */
-  $handler->display->display_options['filters']['field_discipline_tid']['id'] = 'field_discipline_tid';
-  $handler->display->display_options['filters']['field_discipline_tid']['table'] = 'field_data_field_discipline';
-  $handler->display->display_options['filters']['field_discipline_tid']['field'] = 'field_discipline_tid';
-  $handler->display->display_options['filters']['field_discipline_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_discipline_tid']['expose']['operator_id'] = 'field_discipline_tid_op';
-  $handler->display->display_options['filters']['field_discipline_tid']['expose']['label'] = 'Disciplines';
-  $handler->display->display_options['filters']['field_discipline_tid']['expose']['operator'] = 'field_discipline_tid_op';
-  $handler->display->display_options['filters']['field_discipline_tid']['expose']['identifier'] = 'field_discipline_tid';
-  $handler->display->display_options['filters']['field_discipline_tid']['expose']['multiple'] = TRUE;
-  $handler->display->display_options['filters']['field_discipline_tid']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-    5 => 0,
-  );
-  $handler->display->display_options['filters']['field_discipline_tid']['reduce_duplicates'] = TRUE;
-  $handler->display->display_options['filters']['field_discipline_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_discipline_tid']['vocabulary'] = 'discipline';
-
-  /* Display: Publications list */
-  $handler = $view->new_display('panel_pane', 'Publications list', 'publications_list');
-  $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'view-list-teaser';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['exposed_block'] = TRUE;
-  $handler->display->display_options['defaults']['empty'] = FALSE;
-  /* No results behavior: Global: Text area */
-  $handler->display->display_options['empty']['area']['id'] = 'area';
-  $handler->display->display_options['empty']['area']['table'] = 'views';
-  $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'no results found.';
-  $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
+  $handler->display->display_options['pane_category']['name'] = 'GSB Content Panes';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['allow']['use_pager'] = 0;
+  $handler->display->display_options['allow']['items_per_page'] = 0;
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 0;
+  $handler->display->display_options['allow']['exposed_form'] = 0;
+  $handler->display->display_options['allow']['fields_override'] = 0;
   $handler->display->display_options['argument_input'] = array(
     'field_tag_tid' => array(
       'type' => 'panel',
@@ -429,30 +418,33 @@ function gsb_feature_publication_display_views_default_views() {
     ),
   );
 
-  /* Display: publications-by-id */
-  $handler = $view->new_display('panel_pane', 'publications-by-id', 'publications_by_id');
-  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  /* Display: Publication by id or tag */
+  $handler = $view->new_display('panel_pane', 'Publication by id or tag', 'publication_by_id_or_tag');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'view-list-teaser';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['use_more'] = FALSE;
+  $handler->display->display_options['use_more'] = TRUE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['defaults']['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_always'] = TRUE;
+  $handler->display->display_options['defaults']['use_more_text'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'View more like this';
+  $handler->display->display_options['link_url'] = '/newsroom/media-mentions';
+  $handler->display->display_options['defaults']['exposed_form'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['expose_sort_order'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Nid */
-  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['table'] = 'node';
-  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['default_action'] = 'not found';
-  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
-  $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
-  $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
-    'publication' => 'publication',
-  );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
@@ -468,41 +460,209 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'publication' => 'publication',
   );
-  $handler->display->display_options['argument_input'] = array(
-    'nid' => array(
-      'type' => 'user',
-      'context' => 'entity:field_collection_item.field_cta_action',
-      'context_optional' => 0,
-      'panel' => '0',
-      'fixed' => '',
-      'label' => 'Content: Nid',
-    ),
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Nid */
+  $handler->display->display_options['filters']['nid']['id'] = 'nid';
+  $handler->display->display_options['filters']['nid']['table'] = 'node';
+  $handler->display->display_options['filters']['nid']['field'] = 'nid';
+  $handler->display->display_options['filters']['nid']['group'] = 2;
+  $handler->display->display_options['filters']['nid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['nid']['expose']['operator_id'] = 'nid_op';
+  $handler->display->display_options['filters']['nid']['expose']['label'] = 'Nid';
+  $handler->display->display_options['filters']['nid']['expose']['operator'] = 'nid_op';
+  $handler->display->display_options['filters']['nid']['expose']['identifier'] = 'nid';
+  $handler->display->display_options['filters']['nid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
   );
-
-  /* Display: publications-by-tag */
-  $handler = $view->new_display('panel_pane', 'publications-by-tag', 'publications_by_tag');
-  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'publication' => 'publication',
+  /* Filter criterion: Content: Has taxonomy terms (with depth) */
+  $handler->display->display_options['filters']['term_node_tid_depth_6']['id'] = 'term_node_tid_depth_6';
+  $handler->display->display_options['filters']['term_node_tid_depth_6']['table'] = 'node';
+  $handler->display->display_options['filters']['term_node_tid_depth_6']['field'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth_6']['value'] = '';
+  $handler->display->display_options['filters']['term_node_tid_depth_6']['group'] = 2;
+  $handler->display->display_options['filters']['term_node_tid_depth_6']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_6']['expose']['operator_id'] = 'term_node_tid_depth_6_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_6']['expose']['label'] = 'Academic Area';
+  $handler->display->display_options['filters']['term_node_tid_depth_6']['expose']['operator'] = 'term_node_tid_depth_6_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_6']['expose']['identifier'] = 'term_node_tid_depth_6';
+  $handler->display->display_options['filters']['term_node_tid_depth_6']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_6']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
   );
+  $handler->display->display_options['filters']['term_node_tid_depth_6']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_6']['vocabulary'] = 'academic_area';
+  $handler->display->display_options['filters']['term_node_tid_depth_6']['error_message'] = FALSE;
+  $handler->display->display_options['filters']['term_node_tid_depth_6']['depth'] = '0';
+  /* Filter criterion: Content: Has taxonomy terms (with depth) */
+  $handler->display->display_options['filters']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth']['table'] = 'node';
+  $handler->display->display_options['filters']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth']['value'] = '';
+  $handler->display->display_options['filters']['term_node_tid_depth']['group'] = 2;
+  $handler->display->display_options['filters']['term_node_tid_depth']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['operator_id'] = 'term_node_tid_depth_op';
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['label'] = 'Business Insight Topic';
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['operator'] = 'term_node_tid_depth_op';
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['identifier'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['term_node_tid_depth']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth']['vocabulary'] = 'business_insight_topic';
+  $handler->display->display_options['filters']['term_node_tid_depth']['error_message'] = FALSE;
+  $handler->display->display_options['filters']['term_node_tid_depth']['depth'] = '10';
+  /* Filter criterion: Content: Has taxonomy terms (with depth) */
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['id'] = 'term_node_tid_depth_1';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['table'] = 'node';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['field'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['value'] = '';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['group'] = 2;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['operator_id'] = 'term_node_tid_depth_1_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['label'] = 'Discipline';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['operator'] = 'term_node_tid_depth_1_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['identifier'] = 'term_node_tid_depth_1';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['vocabulary'] = 'discipline';
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['error_message'] = FALSE;
+  $handler->display->display_options['filters']['term_node_tid_depth_1']['depth'] = '10';
+  /* Filter criterion: Content: Has taxonomy terms (with depth) */
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['id'] = 'term_node_tid_depth_2';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['table'] = 'node';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['field'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['value'] = '';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['group'] = 2;
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['operator_id'] = 'term_node_tid_depth_2_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['label'] = 'Industry';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['operator'] = 'term_node_tid_depth_2_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['identifier'] = 'term_node_tid_depth_2';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['vocabulary'] = 'industry';
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['error_message'] = FALSE;
+  $handler->display->display_options['filters']['term_node_tid_depth_2']['depth'] = '10';
+  /* Filter criterion: Content: Has taxonomy terms (with depth) */
+  $handler->display->display_options['filters']['term_node_tid_depth_3']['id'] = 'term_node_tid_depth_3';
+  $handler->display->display_options['filters']['term_node_tid_depth_3']['table'] = 'node';
+  $handler->display->display_options['filters']['term_node_tid_depth_3']['field'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth_3']['value'] = '';
+  $handler->display->display_options['filters']['term_node_tid_depth_3']['group'] = 2;
+  $handler->display->display_options['filters']['term_node_tid_depth_3']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_3']['expose']['operator_id'] = 'term_node_tid_depth_3_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_3']['expose']['label'] = 'Region';
+  $handler->display->display_options['filters']['term_node_tid_depth_3']['expose']['operator'] = 'term_node_tid_depth_3_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_3']['expose']['identifier'] = 'term_node_tid_depth_3';
+  $handler->display->display_options['filters']['term_node_tid_depth_3']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_3']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['term_node_tid_depth_3']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_3']['vocabulary'] = 'region';
+  $handler->display->display_options['filters']['term_node_tid_depth_3']['error_message'] = FALSE;
+  $handler->display->display_options['filters']['term_node_tid_depth_3']['depth'] = '10';
+  /* Filter criterion: Content: Has taxonomy terms (with depth) */
+  $handler->display->display_options['filters']['term_node_tid_depth_4']['id'] = 'term_node_tid_depth_4';
+  $handler->display->display_options['filters']['term_node_tid_depth_4']['table'] = 'node';
+  $handler->display->display_options['filters']['term_node_tid_depth_4']['field'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth_4']['value'] = '';
+  $handler->display->display_options['filters']['term_node_tid_depth_4']['group'] = 2;
+  $handler->display->display_options['filters']['term_node_tid_depth_4']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_4']['expose']['operator_id'] = 'term_node_tid_depth_4_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_4']['expose']['label'] = 'Target Audience';
+  $handler->display->display_options['filters']['term_node_tid_depth_4']['expose']['operator'] = 'term_node_tid_depth_4_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_4']['expose']['identifier'] = 'term_node_tid_depth_4';
+  $handler->display->display_options['filters']['term_node_tid_depth_4']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_4']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['term_node_tid_depth_4']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_4']['vocabulary'] = 'target_audience';
+  $handler->display->display_options['filters']['term_node_tid_depth_4']['error_message'] = FALSE;
+  $handler->display->display_options['filters']['term_node_tid_depth_4']['depth'] = '10';
+  /* Filter criterion: Content: Has taxonomy terms (with depth) */
+  $handler->display->display_options['filters']['term_node_tid_depth_5']['id'] = 'term_node_tid_depth_5';
+  $handler->display->display_options['filters']['term_node_tid_depth_5']['table'] = 'node';
+  $handler->display->display_options['filters']['term_node_tid_depth_5']['field'] = 'term_node_tid_depth';
+  $handler->display->display_options['filters']['term_node_tid_depth_5']['value'] = '';
+  $handler->display->display_options['filters']['term_node_tid_depth_5']['group'] = 2;
+  $handler->display->display_options['filters']['term_node_tid_depth_5']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_5']['expose']['operator_id'] = 'term_node_tid_depth_5_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_5']['expose']['label'] = 'Company/Organization';
+  $handler->display->display_options['filters']['term_node_tid_depth_5']['expose']['operator'] = 'term_node_tid_depth_5_op';
+  $handler->display->display_options['filters']['term_node_tid_depth_5']['expose']['identifier'] = 'term_node_tid_depth_5';
+  $handler->display->display_options['filters']['term_node_tid_depth_5']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_5']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['term_node_tid_depth_5']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_depth_5']['vocabulary'] = 'company_organization';
+  $handler->display->display_options['filters']['term_node_tid_depth_5']['error_message'] = FALSE;
+  $handler->display->display_options['filters']['term_node_tid_depth_5']['depth'] = '10';
+  /* Filter criterion: Content: Has taxonomy term */
+  $handler->display->display_options['filters']['tid']['id'] = 'tid';
+  $handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
+  $handler->display->display_options['filters']['tid']['field'] = 'tid';
+  $handler->display->display_options['filters']['tid']['value'] = '';
+  $handler->display->display_options['filters']['tid']['group'] = 2;
+  $handler->display->display_options['filters']['tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['tid']['expose']['operator_id'] = 'tid_op';
+  $handler->display->display_options['filters']['tid']['expose']['label'] = 'Tag';
+  $handler->display->display_options['filters']['tid']['expose']['operator'] = 'tid_op';
+  $handler->display->display_options['filters']['tid']['expose']['identifier'] = 'tid';
+  $handler->display->display_options['filters']['tid']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['tid']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['tid']['vocabulary'] = 'tag';
+  $handler->display->display_options['filters']['tid']['error_message'] = FALSE;
+  $handler->display->display_options['pane_category']['name'] = 'GSB Content Panes';
+  $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['allow']['use_pager'] = 0;
   $handler->display->display_options['allow']['items_per_page'] = 'items_per_page';
   $handler->display->display_options['allow']['offset'] = 0;
@@ -510,16 +670,16 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['allow']['more_link'] = 0;
   $handler->display->display_options['allow']['path_override'] = 0;
   $handler->display->display_options['allow']['title_override'] = 0;
-  $handler->display->display_options['allow']['exposed_form'] = 0;
+  $handler->display->display_options['allow']['exposed_form'] = 'exposed_form';
   $handler->display->display_options['allow']['fields_override'] = 0;
   $handler->display->display_options['argument_input'] = array(
     'field_tag_tid' => array(
-      'type' => 'user',
+      'type' => 'panel',
       'context' => 'entity:field_collection_item.field_cta_action',
       'context_optional' => 0,
-      'panel' => '1',
+      'panel' => '0',
       'fixed' => '',
-      'label' => 'Tag',
+      'label' => 'Content: Tag (field_tag)',
     ),
   );
   $export['publications_filters'] = $view;

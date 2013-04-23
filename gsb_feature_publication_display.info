@@ -12,7 +12,7 @@ dependencies[] = page_manager
 dependencies[] = views
 dependencies[] = views_content
 dependencies[] = views_load_more
-datestamp = 1366138131
+datestamp = 1366502920
 features[ctools][] = page_manager:pages_default:1
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:1
@@ -20,10 +20,3 @@ features[page_manager_pages][] = publications_search_page
 features[views_view][] = publications
 features[views_view][] = publications_filters
 project path = profiles/gsb_public/modules/custom/features
-
-
-; Information added by drush on 2013-04-20
-version = "master-dev"
-project = "gsb_feature_publication_display"
-datestamp = "1366502920"
-
