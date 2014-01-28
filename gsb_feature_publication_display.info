@@ -2,7 +2,6 @@ name = GSB Feature Publication Display
 description = GSB Feature Publication Display
 core = 7.x
 package = GSB
-php = 5.2.4
 version = 7.x-1.0
 project = gsb_feature_publication_display
 dependencies[] = eva
