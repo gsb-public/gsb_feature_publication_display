@@ -5,3 +5,26 @@
  */
 
 include_once 'gsb_feature_publication_display.features.inc';
+
+/**
+ * Implementation of hook_module_implements_alter()
+ */
+function gsb_feature_publication_display_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'form_alter') {
+    if (isset($implementations['gsb_feature_publication_display'])) {
+      $group = $implementations['gsb_feature_publication_display'];
+      unset($implementations['gsb_feature_publication_display']);
+      $implementations['gsb_feature_publication_display'] = $group;
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function gsb_feature_publication_display_form_alter(&$form, &$form_state, $form_id) {
+  // Alter 'Publications' content pane settings form.
+  if ($form_id == 'views_content_views_panes_content_type_edit_form' && $form_state['pane']->subtype == 'publication_filters-panel_pane_1') {
+    $form['exposed']['widget_title']['#field_prefix'] = 'Block Title';
+  }
+}
