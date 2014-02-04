@@ -4,6 +4,7 @@ core = 7.x
 package = GSB
 version = 7.x-1.0
 project = gsb_feature_publication_display
+dependencies[] = better_exposed_filters
 dependencies[] = eva
 dependencies[] = views
 dependencies[] = views_content
