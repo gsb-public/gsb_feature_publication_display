@@ -84,6 +84,27 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'field_authors' => 'field_authors',
+    'field_pub_book_title' => 'field_pub_book_title',
+    'field_place_of_publication' => 'field_place_of_publication',
+    'field_publisher' => 'field_publisher',
+    'field_pub_date_month' => 'field_pub_date_month',
+    'field_pub_date_day' => 'field_pub_date_day',
+    'field_year_of_publication' => 'field_year_of_publication',
+    'field_volume_number' => 'field_volume_number',
+    'field_issue_number' => 'field_issue_number',
+    'field_page_count' => 'field_page_count',
+  );
+  $handler->display->display_options['row_options']['separator'] = ' ';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Content: Authors (field_authors) */
   $handler->display->display_options['relationships']['field_authors_value']['id'] = 'field_authors_value';
@@ -105,13 +126,19 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'div';
+  $handler->display->display_options['fields']['title']['element_class'] = 'views-field-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Field: Content: Authors */
   $handler->display->display_options['fields']['field_authors']['id'] = 'field_authors';
   $handler->display->display_options['fields']['field_authors']['table'] = 'field_data_field_authors';
   $handler->display->display_options['fields']['field_authors']['field'] = 'field_authors';
   $handler->display->display_options['fields']['field_authors']['label'] = '';
+  $handler->display->display_options['fields']['field_authors']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_authors']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['field_authors']['alter']['strip_tags'] = TRUE;
   $handler->display->display_options['fields']['field_authors']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_authors']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_authors']['type'] = 'field_collection_fields';
   $handler->display->display_options['fields']['field_authors']['settings'] = array(
     'view_mode' => 'existing_node_teaser',
@@ -122,14 +149,18 @@ function gsb_feature_publication_display_views_default_views() {
     ),
   );
   $handler->display->display_options['fields']['field_authors']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_authors']['separator'] = ',';
   /* Field: Content: Source Publication / Book Title */
   $handler->display->display_options['fields']['field_pub_book_title']['id'] = 'field_pub_book_title';
   $handler->display->display_options['fields']['field_pub_book_title']['table'] = 'field_data_field_pub_book_title';
   $handler->display->display_options['fields']['field_pub_book_title']['field'] = 'field_pub_book_title';
   $handler->display->display_options['fields']['field_pub_book_title']['label'] = '';
+  $handler->display->display_options['fields']['field_pub_book_title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_pub_book_title']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_pub_book_title']['alter']['text'] = '<em>[field_pub_book_title].</em>';
+  $handler->display->display_options['fields']['field_pub_book_title']['alter']['text'] = ' <em>[field_pub_book_title]</em>.';
   $handler->display->display_options['fields']['field_pub_book_title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_pub_book_title']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_pub_book_title']['type'] = 'text_plain';
   $handler->display->display_options['fields']['field_pub_book_title']['settings'] = array(
     'conditions' => array(
       0 => array(
@@ -142,9 +173,12 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['fields']['field_place_of_publication']['table'] = 'field_data_field_place_of_publication';
   $handler->display->display_options['fields']['field_place_of_publication']['field'] = 'field_place_of_publication';
   $handler->display->display_options['fields']['field_place_of_publication']['label'] = '';
+  $handler->display->display_options['fields']['field_place_of_publication']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_place_of_publication']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_place_of_publication']['alter']['text'] = '[field_place_of_publication]:';
+  $handler->display->display_options['fields']['field_place_of_publication']['alter']['text'] = ' [field_place_of_publication]:';
   $handler->display->display_options['fields']['field_place_of_publication']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_place_of_publication']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_place_of_publication']['type'] = 'text_plain';
   $handler->display->display_options['fields']['field_place_of_publication']['settings'] = array(
     'conditions' => array(
       0 => array(
@@ -157,9 +191,12 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['fields']['field_publisher']['table'] = 'field_data_field_publisher';
   $handler->display->display_options['fields']['field_publisher']['field'] = 'field_publisher';
   $handler->display->display_options['fields']['field_publisher']['label'] = '';
+  $handler->display->display_options['fields']['field_publisher']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_publisher']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_publisher']['alter']['text'] = '[field_publisher],';
+  $handler->display->display_options['fields']['field_publisher']['alter']['text'] = ' [field_publisher],';
   $handler->display->display_options['fields']['field_publisher']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_publisher']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_publisher']['type'] = 'text_plain';
   $handler->display->display_options['fields']['field_publisher']['settings'] = array(
     'conditions' => array(
       0 => array(
@@ -173,10 +210,12 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['fields']['field_pub_date_month']['field'] = 'field_pub_date_month';
   $handler->display->display_options['fields']['field_pub_date_month']['label'] = '';
   $handler->display->display_options['fields']['field_pub_date_month']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_pub_date_month']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_pub_date_month']['alter']['text'] = ' [field_pub_date_month]';
   $handler->display->display_options['fields']['field_pub_date_month']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_pub_date_month']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_pub_date_month']['type'] = 'gsb_field_formatter_month';
   $handler->display->display_options['fields']['field_pub_date_month']['settings'] = array(
-    'thousand_separator' => ' ',
-    'prefix_suffix' => 0,
     'conditions' => array(
       0 => array(
         'condition' => '',
@@ -189,10 +228,11 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['fields']['field_pub_date_day']['field'] = 'field_pub_date_day';
   $handler->display->display_options['fields']['field_pub_date_day']['label'] = '';
   $handler->display->display_options['fields']['field_pub_date_day']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_pub_date_day']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_pub_date_day']['alter']['text'] = ' [field_pub_date_day],';
   $handler->display->display_options['fields']['field_pub_date_day']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_pub_date_day']['type'] = 'number_unformatted';
   $handler->display->display_options['fields']['field_pub_date_day']['settings'] = array(
-    'thousand_separator' => '',
-    'prefix_suffix' => 0,
     'conditions' => array(
       0 => array(
         'condition' => '',
@@ -204,9 +244,11 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['fields']['field_year_of_publication']['table'] = 'field_data_field_year_of_publication';
   $handler->display->display_options['fields']['field_year_of_publication']['field'] = 'field_year_of_publication';
   $handler->display->display_options['fields']['field_year_of_publication']['label'] = '';
+  $handler->display->display_options['fields']['field_year_of_publication']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_year_of_publication']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_year_of_publication']['alter']['text'] = '[field_pub_date_month] [field_pub_date_day], [field_year_of_publication],';
+  $handler->display->display_options['fields']['field_year_of_publication']['alter']['text'] = ' [field_year_of_publication]';
   $handler->display->display_options['fields']['field_year_of_publication']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_year_of_publication']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_year_of_publication']['settings'] = array(
     'format_type' => 'year',
     'fromto' => 'both',
@@ -225,9 +267,12 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['fields']['field_volume_number']['table'] = 'field_data_field_volume_number';
   $handler->display->display_options['fields']['field_volume_number']['field'] = 'field_volume_number';
   $handler->display->display_options['fields']['field_volume_number']['label'] = '';
+  $handler->display->display_options['fields']['field_volume_number']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_volume_number']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_volume_number']['alter']['text'] = '[field_volume_number],';
+  $handler->display->display_options['fields']['field_volume_number']['alter']['text'] = ', [field_volume_number]';
   $handler->display->display_options['fields']['field_volume_number']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_volume_number']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_volume_number']['type'] = 'text_plain';
   $handler->display->display_options['fields']['field_volume_number']['settings'] = array(
     'conditions' => array(
       0 => array(
@@ -240,9 +285,12 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['fields']['field_issue_number']['table'] = 'field_data_field_issue_number';
   $handler->display->display_options['fields']['field_issue_number']['field'] = 'field_issue_number';
   $handler->display->display_options['fields']['field_issue_number']['label'] = '';
+  $handler->display->display_options['fields']['field_issue_number']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_issue_number']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_issue_number']['alter']['text'] = '[field_issue_number],';
+  $handler->display->display_options['fields']['field_issue_number']['alter']['text'] = ', [field_issue_number]';
   $handler->display->display_options['fields']['field_issue_number']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_issue_number']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_issue_number']['type'] = 'text_plain';
   $handler->display->display_options['fields']['field_issue_number']['settings'] = array(
     'conditions' => array(
       0 => array(
@@ -255,9 +303,12 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['fields']['field_page_count']['table'] = 'field_data_field_page_count';
   $handler->display->display_options['fields']['field_page_count']['field'] = 'field_page_count';
   $handler->display->display_options['fields']['field_page_count']['label'] = '';
+  $handler->display->display_options['fields']['field_page_count']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_page_count']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_page_count']['alter']['text'] = '[field_page_count].';
+  $handler->display->display_options['fields']['field_page_count']['alter']['text'] = ', [field_page_count]';
   $handler->display->display_options['fields']['field_page_count']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_page_count']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_page_count']['type'] = 'text_plain';
   $handler->display->display_options['fields']['field_page_count']['settings'] = array(
     'conditions' => array(
       0 => array(
@@ -265,6 +316,15 @@ function gsb_feature_publication_display_views_default_views() {
       ),
     ),
   );
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_authors].[field_pub_book_title][field_place_of_publication][field_publisher][field_pub_date_month][field_pub_date_day][field_year_of_publication][field_volume_number][field_issue_number][field_page_count].';
+  $handler->display->display_options['fields']['nothing']['element_type'] = 'div';
+  $handler->display->display_options['fields']['nothing']['element_class'] = 'publication-meta';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
