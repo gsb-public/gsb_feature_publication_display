@@ -628,7 +628,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '0';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
@@ -696,55 +696,6 @@ function gsb_feature_publication_display_views_default_views() {
     'publication' => 'publication',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Title */
-  $handler->display->display_options['filters']['title']['id'] = 'title';
-  $handler->display->display_options['filters']['title']['table'] = 'node';
-  $handler->display->display_options['filters']['title']['field'] = 'title';
-  $handler->display->display_options['filters']['title']['group'] = 2;
-  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['label'] = 'Publication Title';
-  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
-  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    11 => 0,
-    151 => 0,
-    16 => 0,
-    21 => 0,
-    61 => 0,
-    56 => 0,
-    71 => 0,
-    66 => 0,
-    26 => 0,
-    31 => 0,
-    36 => 0,
-    41 => 0,
-    46 => 0,
-    51 => 0,
-    81 => 0,
-    86 => 0,
-    91 => 0,
-    96 => 0,
-    101 => 0,
-    106 => 0,
-    116 => 0,
-    121 => 0,
-    126 => 0,
-    131 => 0,
-    136 => 0,
-    141 => 0,
-    146 => 0,
-    156 => 0,
-    161 => 0,
-    166 => 0,
-  );
-  $handler->display->display_options['filters']['title']['expose']['autocomplete_items'] = '10';
-  $handler->display->display_options['filters']['title']['expose']['autocomplete_field'] = 'title';
-  $handler->display->display_options['filters']['title']['expose']['autocomplete_raw_suggestion'] = 1;
-  $handler->display->display_options['filters']['title']['expose']['autocomplete_raw_dropdown'] = 1;
-  $handler->display->display_options['filters']['title']['expose']['autocomplete_dependent'] = 0;
   /* Filter criterion: Field collection item: Author (field_person_fac_single_ref) */
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['id'] = 'field_person_fac_single_ref_target_id';
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['table'] = 'field_data_field_person_fac_single_ref';
@@ -753,7 +704,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['group'] = 2;
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['expose']['operator_id'] = 'field_person_fac_single_ref_target_id_op';
-  $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['expose']['label'] = 'Author (field_person_fac_single_ref)';
+  $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['expose']['label'] = 'Faculty Author';
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['expose']['operator'] = 'field_person_fac_single_ref_target_id_op';
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['expose']['identifier'] = 'field_person_fac_single_ref_target_id';
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['expose']['remember_roles'] = array(
@@ -797,7 +748,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['group'] = 2;
   $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['expose']['operator_id'] = 'field_academic_area_unlimited_tid_op';
-  $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['expose']['label'] = 'Academic Area (field_academic_area_unlimited)';
+  $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['expose']['label'] = 'Academic Areas';
   $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['expose']['operator'] = 'field_academic_area_unlimited_tid_op';
   $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['expose']['identifier'] = 'field_academic_area_unlimited_tid';
   $handler->display->display_options['filters']['field_academic_area_unlimited_tid']['expose']['multiple'] = TRUE;
@@ -845,7 +796,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['filters']['field_business_insight_topic_tid']['group'] = 2;
   $handler->display->display_options['filters']['field_business_insight_topic_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_business_insight_topic_tid']['expose']['operator_id'] = 'field_business_insight_topic_tid_op';
-  $handler->display->display_options['filters']['field_business_insight_topic_tid']['expose']['label'] = 'Business Insight Topic (field_business_insight_topic)';
+  $handler->display->display_options['filters']['field_business_insight_topic_tid']['expose']['label'] = 'Additional Topics';
   $handler->display->display_options['filters']['field_business_insight_topic_tid']['expose']['operator'] = 'field_business_insight_topic_tid_op';
   $handler->display->display_options['filters']['field_business_insight_topic_tid']['expose']['identifier'] = 'field_business_insight_topic_tid';
   $handler->display->display_options['filters']['field_business_insight_topic_tid']['expose']['multiple'] = TRUE;
@@ -893,7 +844,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['filters']['field_region_tid']['group'] = 2;
   $handler->display->display_options['filters']['field_region_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_region_tid']['expose']['operator_id'] = 'field_region_tid_op';
-  $handler->display->display_options['filters']['field_region_tid']['expose']['label'] = 'Region (field_region)';
+  $handler->display->display_options['filters']['field_region_tid']['expose']['label'] = 'Regions';
   $handler->display->display_options['filters']['field_region_tid']['expose']['operator'] = 'field_region_tid_op';
   $handler->display->display_options['filters']['field_region_tid']['expose']['identifier'] = 'field_region_tid';
   $handler->display->display_options['filters']['field_region_tid']['expose']['multiple'] = TRUE;
@@ -941,7 +892,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['group'] = 2;
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['expose']['operator_id'] = 'field_centers_research_programs_tid_op';
-  $handler->display->display_options['filters']['field_centers_research_programs_tid']['expose']['label'] = 'Centers (field_centers_research_programs)';
+  $handler->display->display_options['filters']['field_centers_research_programs_tid']['expose']['label'] = 'Centers';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['expose']['operator'] = 'field_centers_research_programs_tid_op';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['expose']['identifier'] = 'field_centers_research_programs_tid';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['expose']['multiple'] = TRUE;
