@@ -56,6 +56,16 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['sorts']['field_year_of_publication_value']['table'] = 'field_data_field_year_of_publication';
   $handler->display->display_options['sorts']['field_year_of_publication_value']['field'] = 'field_year_of_publication_value';
   $handler->display->display_options['sorts']['field_year_of_publication_value']['order'] = 'DESC';
+  /* Sort criterion: Content: Publication Month (field_pub_date_month) */
+  $handler->display->display_options['sorts']['field_pub_date_month_value']['id'] = 'field_pub_date_month_value';
+  $handler->display->display_options['sorts']['field_pub_date_month_value']['table'] = 'field_data_field_pub_date_month';
+  $handler->display->display_options['sorts']['field_pub_date_month_value']['field'] = 'field_pub_date_month_value';
+  $handler->display->display_options['sorts']['field_pub_date_month_value']['order'] = 'DESC';
+  /* Sort criterion: Content: Publication Day (field_pub_date_day) */
+  $handler->display->display_options['sorts']['field_pub_date_day_value']['id'] = 'field_pub_date_day_value';
+  $handler->display->display_options['sorts']['field_pub_date_day_value']['table'] = 'field_data_field_pub_date_day';
+  $handler->display->display_options['sorts']['field_pub_date_day_value']['field'] = 'field_pub_date_day_value';
+  $handler->display->display_options['sorts']['field_pub_date_day_value']['order'] = 'DESC';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
