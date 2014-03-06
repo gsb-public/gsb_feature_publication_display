@@ -727,6 +727,7 @@ function gsb_feature_publication_display_views_default_views() {
       ),
     ),
   );
+  $handler->display->display_options['fields']['field_profile_visibility']['use_form_element'] = TRUE;
   /* Field: Content: Edit link (in modal) */
   $handler->display->display_options['fields']['edit_node_modal']['id'] = 'edit_node_modal';
   $handler->display->display_options['fields']['edit_node_modal']['table'] = 'views_entity_node';
