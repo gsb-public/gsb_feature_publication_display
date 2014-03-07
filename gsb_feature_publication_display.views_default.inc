@@ -823,7 +823,7 @@ function gsb_feature_publication_display_views_default_views() {
   /* Display: EVA Field Featured */
   $handler = $view->new_display('entity_view', 'EVA Field Featured', 'entity_view_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Journals and Other Publications';
+  $handler->display->display_options['title'] = 'Featured Journals';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'show-more-less show-more-less-num-3 show-more-less-min-5';
   $handler->display->display_options['defaults']['pager'] = FALSE;
