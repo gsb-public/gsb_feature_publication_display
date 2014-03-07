@@ -370,6 +370,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['filters']['field_profile_visibility_value']['relationship'] = 'field_authors_value';
   $handler->display->display_options['filters']['field_profile_visibility_value']['value'] = array(
     1 => '1',
+    2 => '2',
   );
   $handler->display->display_options['entity_type'] = 'node';
   $handler->display->display_options['bundles'] = array(
