@@ -128,7 +128,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['relationships']['field_person_fac_single_ref_target_id']['table'] = 'field_data_field_person_fac_single_ref';
   $handler->display->display_options['relationships']['field_person_fac_single_ref_target_id']['field'] = 'field_person_fac_single_ref_target_id';
   $handler->display->display_options['relationships']['field_person_fac_single_ref_target_id']['relationship'] = 'field_authors_value';
-  $handler->display->display_options['relationships']['field_person_fac_single_ref_target_id']['label'] = 'Author';
+  $handler->display->display_options['relationships']['field_person_fac_single_ref_target_id']['label'] = 'Faculty';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -347,6 +347,30 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'publication' => 'publication',
+  );
+  /* Filter criterion: Field collection item: Profile Visibility (field_profile_visibility) */
+  $handler->display->display_options['filters']['field_profile_visibility_value']['id'] = 'field_profile_visibility_value';
+  $handler->display->display_options['filters']['field_profile_visibility_value']['table'] = 'field_data_field_profile_visibility';
+  $handler->display->display_options['filters']['field_profile_visibility_value']['field'] = 'field_profile_visibility_value';
+  $handler->display->display_options['filters']['field_profile_visibility_value']['relationship'] = 'field_authors_value';
+  $handler->display->display_options['filters']['field_profile_visibility_value']['value'] = array(
+    1 => '1',
+  );
   $handler->display->display_options['entity_type'] = 'node';
   $handler->display->display_options['bundles'] = array(
     0 => 'faculty',
@@ -693,9 +717,9 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   /* Field: Content: Publication year */
   $handler->display->display_options['fields']['field_year_of_publication']['id'] = 'field_year_of_publication';
   $handler->display->display_options['fields']['field_year_of_publication']['table'] = 'field_data_field_year_of_publication';
