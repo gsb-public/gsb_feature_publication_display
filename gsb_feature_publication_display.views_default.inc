@@ -769,15 +769,15 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['fields']['edit_node_modal']['label'] = '';
   $handler->display->display_options['fields']['edit_node_modal']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Title */
-  $handler->display->display_options['sorts']['title']['id'] = 'title';
-  $handler->display->display_options['sorts']['title']['table'] = 'node';
-  $handler->display->display_options['sorts']['title']['field'] = 'title';
   /* Sort criterion: Content: Publication year (field_year_of_publication) */
   $handler->display->display_options['sorts']['field_year_of_publication_value']['id'] = 'field_year_of_publication_value';
   $handler->display->display_options['sorts']['field_year_of_publication_value']['table'] = 'field_data_field_year_of_publication';
   $handler->display->display_options['sorts']['field_year_of_publication_value']['field'] = 'field_year_of_publication_value';
   $handler->display->display_options['sorts']['field_year_of_publication_value']['order'] = 'DESC';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
