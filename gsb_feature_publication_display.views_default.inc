@@ -662,7 +662,7 @@ function gsb_feature_publication_display_views_default_views() {
     'field_year_of_publication' => 'field_year_of_publication',
     'field_profile_visibility' => 'field_profile_visibility',
   );
-  $handler->display->display_options['style_options']['default'] = 'title';
+  $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
     'title' => array(
       'sortable' => 1,
