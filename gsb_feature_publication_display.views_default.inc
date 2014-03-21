@@ -309,7 +309,7 @@ function gsb_feature_publication_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Content: Length */
+  /* Field: Content: Pages */
   $handler->display->display_options['fields']['field_page_count']['id'] = 'field_page_count';
   $handler->display->display_options['fields']['field_page_count']['table'] = 'field_data_field_page_count';
   $handler->display->display_options['fields']['field_page_count']['field'] = 'field_page_count';
@@ -363,14 +363,13 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'publication' => 'publication',
   );
-  /* Filter criterion: Field collection item: Profile Visibility (field_profile_visibility) */
+  /* Filter criterion: Field: Profile Visibility (field_profile_visibility) */
   $handler->display->display_options['filters']['field_profile_visibility_value']['id'] = 'field_profile_visibility_value';
   $handler->display->display_options['filters']['field_profile_visibility_value']['table'] = 'field_data_field_profile_visibility';
   $handler->display->display_options['filters']['field_profile_visibility_value']['field'] = 'field_profile_visibility_value';
   $handler->display->display_options['filters']['field_profile_visibility_value']['relationship'] = 'field_authors_value';
   $handler->display->display_options['filters']['field_profile_visibility_value']['value'] = array(
     1 => '1',
-    2 => '2',
   );
   $handler->display->display_options['entity_type'] = 'node';
   $handler->display->display_options['bundles'] = array(
@@ -630,7 +629,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_dependent'] = 0;
-  /* Filter criterion: Field collection item: Author (field_person_fac_single_ref) */
+  /* Filter criterion: Field: Related faculty member (field_person_fac_single_ref) */
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['id'] = 'field_person_fac_single_ref_target_id';
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['table'] = 'field_data_field_person_fac_single_ref';
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['field'] = 'field_person_fac_single_ref_target_id';
@@ -748,7 +747,7 @@ function gsb_feature_publication_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Field collection item: Profile Visibility */
+  /* Field: Field: Profile Visibility */
   $handler->display->display_options['fields']['field_profile_visibility']['id'] = 'field_profile_visibility';
   $handler->display->display_options['fields']['field_profile_visibility']['table'] = 'field_data_field_profile_visibility';
   $handler->display->display_options['fields']['field_profile_visibility']['field'] = 'field_profile_visibility';
@@ -1044,7 +1043,7 @@ function gsb_feature_publication_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Content: Length */
+  /* Field: Content: Pages */
   $handler->display->display_options['fields']['field_page_count']['id'] = 'field_page_count';
   $handler->display->display_options['fields']['field_page_count']['table'] = 'field_data_field_page_count';
   $handler->display->display_options['fields']['field_page_count']['field'] = 'field_page_count';
@@ -1098,7 +1097,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'publication' => 'publication',
   );
-  /* Filter criterion: Field collection item: Profile Visibility (field_profile_visibility) */
+  /* Filter criterion: Field: Profile Visibility (field_profile_visibility) */
   $handler->display->display_options['filters']['field_profile_visibility_value']['id'] = 'field_profile_visibility_value';
   $handler->display->display_options['filters']['field_profile_visibility_value']['table'] = 'field_data_field_profile_visibility';
   $handler->display->display_options['filters']['field_profile_visibility_value']['field'] = 'field_profile_visibility_value';
@@ -1201,7 +1200,7 @@ function gsb_feature_publication_display_views_default_views() {
     'publication' => 'publication',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Field collection item: Author (field_person_fac_single_ref) */
+  /* Filter criterion: Field: Related faculty member (field_person_fac_single_ref) */
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['id'] = 'field_person_fac_single_ref_target_id';
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['table'] = 'field_data_field_person_fac_single_ref';
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['field'] = 'field_person_fac_single_ref_target_id';
