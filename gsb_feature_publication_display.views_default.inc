@@ -280,7 +280,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['fields']['field_volume_number']['label'] = '';
   $handler->display->display_options['fields']['field_volume_number']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_volume_number']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_volume_number']['alter']['text'] = ', [field_volume_number]';
+  $handler->display->display_options['fields']['field_volume_number']['alter']['text'] = ', Vol. [field_volume_number]';
   $handler->display->display_options['fields']['field_volume_number']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_volume_number']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_volume_number']['type'] = 'text_plain';
@@ -298,7 +298,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['fields']['field_issue_number']['label'] = '';
   $handler->display->display_options['fields']['field_issue_number']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_issue_number']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_issue_number']['alter']['text'] = ', [field_issue_number]';
+  $handler->display->display_options['fields']['field_issue_number']['alter']['text'] = ', Issue [field_issue_number]';
   $handler->display->display_options['fields']['field_issue_number']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_issue_number']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_issue_number']['type'] = 'text_plain';
@@ -316,7 +316,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['fields']['field_page_count']['label'] = '';
   $handler->display->display_options['fields']['field_page_count']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_page_count']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_page_count']['alter']['text'] = ', [field_page_count]';
+  $handler->display->display_options['fields']['field_page_count']['alter']['text'] = ', Pages [field_page_count]';
   $handler->display->display_options['fields']['field_page_count']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_page_count']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_page_count']['type'] = 'text_plain';
@@ -1015,7 +1015,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['fields']['field_volume_number']['label'] = '';
   $handler->display->display_options['fields']['field_volume_number']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_volume_number']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_volume_number']['alter']['text'] = ', [field_volume_number]';
+  $handler->display->display_options['fields']['field_volume_number']['alter']['text'] = ', Vol. [field_volume_number]';
   $handler->display->display_options['fields']['field_volume_number']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_volume_number']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_volume_number']['type'] = 'text_plain';
@@ -1033,7 +1033,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['fields']['field_issue_number']['label'] = '';
   $handler->display->display_options['fields']['field_issue_number']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_issue_number']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_issue_number']['alter']['text'] = ', [field_issue_number]';
+  $handler->display->display_options['fields']['field_issue_number']['alter']['text'] = ', Issue [field_issue_number]';
   $handler->display->display_options['fields']['field_issue_number']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_issue_number']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_issue_number']['type'] = 'text_plain';
@@ -1051,7 +1051,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['fields']['field_page_count']['label'] = '';
   $handler->display->display_options['fields']['field_page_count']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_page_count']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_page_count']['alter']['text'] = ', [field_page_count]';
+  $handler->display->display_options['fields']['field_page_count']['alter']['text'] = ', Pages [field_page_count]';
   $handler->display->display_options['fields']['field_page_count']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_page_count']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_page_count']['type'] = 'text_plain';
