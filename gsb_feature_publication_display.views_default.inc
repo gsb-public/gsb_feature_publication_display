@@ -689,10 +689,6 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Header: Global: Messages */
-  $handler->display->display_options['header']['messages']['id'] = 'messages';
-  $handler->display->display_options['header']['messages']['table'] = 'views';
-  $handler->display->display_options['header']['messages']['field'] = 'messages';
   /* Header: GSB: Modal node add link */
   $handler->display->display_options['header']['gsb_node_modal_add_link']['id'] = 'gsb_node_modal_add_link';
   $handler->display->display_options['header']['gsb_node_modal_add_link']['table'] = 'gsb__global';
