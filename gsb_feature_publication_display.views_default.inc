@@ -361,7 +361,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'publication' => 'publication',
   );
-  /* Filter criterion: Field: Profile Visibility (field_profile_visibility) */
+  /* Filter criterion: Field: Display on Profile (field_profile_visibility) */
   $handler->display->display_options['filters']['field_profile_visibility_value']['id'] = 'field_profile_visibility_value';
   $handler->display->display_options['filters']['field_profile_visibility_value']['table'] = 'field_data_field_profile_visibility';
   $handler->display->display_options['filters']['field_profile_visibility_value']['field'] = 'field_profile_visibility_value';
@@ -694,7 +694,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['header']['gsb_node_modal_add_link']['table'] = 'gsb__global';
   $handler->display->display_options['header']['gsb_node_modal_add_link']['field'] = 'gsb_node_modal_add_link';
   $handler->display->display_options['header']['gsb_node_modal_add_link']['bundle'] = 'publication';
-  $handler->display->display_options['header']['gsb_node_modal_add_link']['text'] = 'Create new journal article, book chapter, other';
+  $handler->display->display_options['header']['gsb_node_modal_add_link']['text'] = 'Create a new journal article, book chapter, other';
   $handler->display->display_options['defaults']['empty'] = FALSE;
   /* No results behavior: Global: Unfiltered text */
   $handler->display->display_options['empty']['area_text_custom']['id'] = 'area_text_custom';
@@ -742,7 +742,7 @@ function gsb_feature_publication_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Field: Profile Visibility */
+  /* Field: Field: Display on Profile */
   $handler->display->display_options['fields']['field_profile_visibility']['id'] = 'field_profile_visibility';
   $handler->display->display_options['fields']['field_profile_visibility']['table'] = 'field_data_field_profile_visibility';
   $handler->display->display_options['fields']['field_profile_visibility']['field'] = 'field_profile_visibility';
