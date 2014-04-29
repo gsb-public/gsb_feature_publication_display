@@ -89,7 +89,7 @@ function gsb_feature_publication_display_views_default_views() {
   /* Display: EVA Field (Journal articles) */
   $handler = $view->new_display('entity_view', 'EVA Field (Journal articles)', 'publications_listing_entity_view');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Journals and Other Publications';
+  $handler->display->display_options['title'] = 'Journal Articles';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'show-more-less show-more-less-num-3 show-more-less-min-5';
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -822,7 +822,7 @@ function gsb_feature_publication_display_views_default_views() {
   /* Display: EVA Field (Book chapter) */
   $handler = $view->new_display('entity_view', 'EVA Field (Book chapter)', 'publications_book_chapter_listing_entity_view');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Journals and Other Publications';
+  $handler->display->display_options['title'] = 'Book Chapters';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'show-more-less show-more-less-num-3 show-more-less-min-5';
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -1119,7 +1119,7 @@ function gsb_feature_publication_display_views_default_views() {
   /* Display: EVA Field (Other publications) */
   $handler = $view->new_display('entity_view', 'EVA Field (Other publications)', 'publications_other_listing_entity_view');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Journals and Other Publications';
+  $handler->display->display_options['title'] = 'Other Publications';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'show-more-less show-more-less-num-3 show-more-less-min-5';
   $handler->display->display_options['defaults']['pager'] = FALSE;
