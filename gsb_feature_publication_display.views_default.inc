@@ -645,6 +645,13 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['expose']['label'] = 'Author (field_person_fac_single_ref)';
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['expose']['operator'] = 'field_person_fac_single_ref_target_id_op';
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['expose']['identifier'] = 'field_person_fac_single_ref_target_id';
+  /* Filter criterion: Content: Publication Type (field_publication_type) */
+  $handler->display->display_options['filters']['field_publication_type_value']['id'] = 'field_publication_type_value';
+  $handler->display->display_options['filters']['field_publication_type_value']['table'] = 'field_data_field_publication_type';
+  $handler->display->display_options['filters']['field_publication_type_value']['field'] = 'field_publication_type_value';
+  $handler->display->display_options['filters']['field_publication_type_value']['value'] = array(
+    'journal_article' => 'journal_article',
+  );
   $handler->display->display_options['pane_category']['name'] = 'Other';
   $handler->display->display_options['pane_category']['weight'] = '0';
 
