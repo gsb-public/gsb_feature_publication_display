@@ -27,6 +27,7 @@ function gsb_feature_publication_display_form_alter(&$form, &$form_state, $form_
   if ($form_id == 'views_content_views_panes_content_type_edit_form' && $form_state['pane']->subtype == 'publication_filters-panel_pane_1') {
     $form['exposed']['widget_title']['#field_prefix'] = 'Block Title';
     $form['arguments']['nid']['#description'] = 'Separate Node IDs with commas and no spaces.';
+    $form['exposed']['filter-field_person_fac_single_ref_target_id']['#description'] = 'Enter faculty node ID.';
     $form['exposed']['arguments'] = $form['arguments'];
     $form['arguments']['#access'] = FALSE;
     $form['#validate'][] = 'gsb_feature_publication_display_form_validate';
