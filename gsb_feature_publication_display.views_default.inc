@@ -197,7 +197,7 @@ function gsb_feature_publication_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Content: Publisher */
+  /* Field: Content: Source Publication */
   $handler->display->display_options['fields']['field_publisher']['id'] = 'field_publisher';
   $handler->display->display_options['fields']['field_publisher']['table'] = 'field_data_field_publisher';
   $handler->display->display_options['fields']['field_publisher']['field'] = 'field_publisher';
@@ -635,7 +635,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_raw_suggestion'] = 1;
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_raw_dropdown'] = 1;
   $handler->display->display_options['filters']['field_search_field_value']['expose']['autocomplete_dependent'] = 0;
-  /* Filter criterion: Field: Related faculty member (field_person_fac_single_ref) */
+  /* Filter criterion: Field: Faculty Name (field_person_fac_single_ref) */
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['id'] = 'field_person_fac_single_ref_target_id';
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['table'] = 'field_data_field_person_fac_single_ref';
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['field'] = 'field_person_fac_single_ref_target_id';
@@ -955,7 +955,7 @@ function gsb_feature_publication_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Content: Publisher */
+  /* Field: Content: Source Publication */
   $handler->display->display_options['fields']['field_publisher']['id'] = 'field_publisher';
   $handler->display->display_options['fields']['field_publisher']['table'] = 'field_data_field_publisher';
   $handler->display->display_options['fields']['field_publisher']['field'] = 'field_publisher';
@@ -1252,7 +1252,7 @@ function gsb_feature_publication_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Content: Publisher */
+  /* Field: Content: Source Publication */
   $handler->display->display_options['fields']['field_publisher']['id'] = 'field_publisher';
   $handler->display->display_options['fields']['field_publisher']['table'] = 'field_data_field_publisher';
   $handler->display->display_options['fields']['field_publisher']['field'] = 'field_publisher';
@@ -1577,7 +1577,7 @@ function gsb_feature_publication_display_views_default_views() {
     161 => 0,
     166 => 0,
   );
-  /* Filter criterion: Field: Related faculty member (field_person_fac_single_ref) */
+  /* Filter criterion: Field: Faculty Name (field_person_fac_single_ref) */
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['id'] = 'field_person_fac_single_ref_target_id';
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['table'] = 'field_data_field_person_fac_single_ref';
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['field'] = 'field_person_fac_single_ref_target_id';
@@ -1814,6 +1814,57 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['vocabulary'] = 'centers_research_programs';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['hierarchy'] = 1;
+  /* Filter criterion: Content: Keywords (field_tag) */
+  $handler->display->display_options['filters']['field_tag_tid']['id'] = 'field_tag_tid';
+  $handler->display->display_options['filters']['field_tag_tid']['table'] = 'field_data_field_tag';
+  $handler->display->display_options['filters']['field_tag_tid']['field'] = 'field_tag_tid';
+  $handler->display->display_options['filters']['field_tag_tid']['value'] = '';
+  $handler->display->display_options['filters']['field_tag_tid']['group'] = 2;
+  $handler->display->display_options['filters']['field_tag_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_tag_tid']['expose']['operator_id'] = 'field_tag_tid_op';
+  $handler->display->display_options['filters']['field_tag_tid']['expose']['label'] = 'Keywords';
+  $handler->display->display_options['filters']['field_tag_tid']['expose']['operator'] = 'field_tag_tid_op';
+  $handler->display->display_options['filters']['field_tag_tid']['expose']['identifier'] = 'field_tag_tid';
+  $handler->display->display_options['filters']['field_tag_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    11 => 0,
+    151 => 0,
+    16 => 0,
+    21 => 0,
+    71 => 0,
+    61 => 0,
+    171 => 0,
+    56 => 0,
+    66 => 0,
+    31 => 0,
+    36 => 0,
+    41 => 0,
+    91 => 0,
+    146 => 0,
+    136 => 0,
+    26 => 0,
+    46 => 0,
+    51 => 0,
+    81 => 0,
+    86 => 0,
+    96 => 0,
+    101 => 0,
+    106 => 0,
+    116 => 0,
+    121 => 0,
+    126 => 0,
+    131 => 0,
+    141 => 0,
+    156 => 0,
+    161 => 0,
+    166 => 0,
+    176 => 0,
+    181 => 0,
+    186 => 0,
+    191 => 0,
+  );
+  $handler->display->display_options['filters']['field_tag_tid']['vocabulary'] = 'tag';
 
   /* Display: Publication Filters */
   $handler = $view->new_display('panel_pane', 'Publication Filters', 'panel_pane_1');
