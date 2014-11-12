@@ -1868,7 +1868,7 @@ function gsb_feature_publication_display_views_default_views() {
 
   /* Display: Publication Filters */
   $handler = $view->new_display('panel_pane', 'Publication Filters', 'panel_pane_1');
-  $handler->display->display_options['pane_title'] = 'Publications';
+  $handler->display->display_options['pane_title'] = 'Publications: Multiple Criteria';
   $handler->display->display_options['pane_category']['name'] = 'Content Panes';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $handler->display->display_options['allow']['use_pager'] = 0;
