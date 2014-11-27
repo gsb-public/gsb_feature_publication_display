@@ -653,7 +653,7 @@ function gsb_feature_publication_display_views_default_views() {
     'journal_article' => 'journal_article',
   );
   $handler->display->display_options['pane_title'] = 'Publications';
-  $handler->display->display_options['pane_category']['name'] = 'Other';
+  $handler->display->display_options['pane_category']['name'] = 'Non-customizable Content Lists';
   $handler->display->display_options['pane_category']['weight'] = '0';
 
   /* Display: EVA Field Form */
