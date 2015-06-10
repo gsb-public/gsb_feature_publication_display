@@ -1459,13 +1459,6 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['view_mode'] = 'views_content_pane';
   $handler->display->display_options['row_options']['links'] = FALSE;
-  /* Footer: Global: Text area */
-  $handler->display->display_options['footer']['area']['id'] = 'area';
-  $handler->display->display_options['footer']['area']['table'] = 'views';
-  $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['label'] = 'See All Publications';
-  $handler->display->display_options['footer']['area']['content'] = '<div class="see-all"><a href="/faculty-research/publications">See All Publications</a></div>';
-  $handler->display->display_options['footer']['area']['format'] = 'full_html';
   /* Relationship: Content: Author &amp; Co-Authors (field_authors) */
   $handler->display->display_options['relationships']['field_authors_value']['id'] = 'field_authors_value';
   $handler->display->display_options['relationships']['field_authors_value']['table'] = 'field_data_field_authors';
