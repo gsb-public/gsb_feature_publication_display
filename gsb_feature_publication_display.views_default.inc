@@ -1585,7 +1585,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['arguments']['nid']['break_phrase'] = TRUE;
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',
-    2 => 'OR',
+    2 => 'AND',
   );
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
