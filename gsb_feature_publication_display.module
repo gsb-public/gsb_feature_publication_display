@@ -24,7 +24,16 @@ function gsb_feature_publication_display_module_implements_alter(&$implementatio
   */
 function gsb_feature_publication_display_form_views_content_views_panes_content_type_edit_form_alter(&$form, &$form_state) {
   // Alter 'Publication filters' content pane settings form.
+
   if ($form_state['pane']->subtype == 'publication_filters-panel_pane_1' && $form_state['view']->name == 'publication_filters' && $form_state['view']->current_display == 'panel_pane_1') {
+   //Hide all display modes except compact and expanded
+
+    $view_modes = $form['view_mode']['#options'];
+    foreach($view_modes as $key=>$value) {
+      if($key !== 'compact' AND $key !== 'expanded'){
+        unset($form['view_mode']['#options'][$key]);
+      }
+    }
 
     $form['exposed']['widget_title']['#field_prefix'] = 'Block Title';
     $form['arguments']['nid']['#description'] = 'Separate Node IDs with commas and no spaces.';
@@ -67,9 +76,17 @@ function gsb_feature_publication_display_form_submit($form, &$form_state) {
  *  - Alter 'Publication Filter' content pane title to be linked to a custom URL.
  */
 function gsb_feature_publication_display_panels_pane_content_alter($content, $pane, $args, $context) {
+  //dpm($content);
   if ($content && $content->subtype == 'publication_filters-panel_pane_1') {
     if (!empty($pane->configuration['title_link'])) {
       $content->title = l($content->title, $pane->configuration['title_link']);
     }
   }
+
 }
+//function HOOK_panels_pane_content_alter($content, $pane, $args, $context) {
+//  if ($content->title) {
+//    $content->title = t($content->title);
+//  }
+//  return $content;
+//}
