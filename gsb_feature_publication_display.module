@@ -43,7 +43,8 @@ function gsb_feature_publication_display_form_views_content_views_panes_content_
     //$form['exposed']['filter-title']['#weight'] = -99;
     $form['exposed']['arguments']['#weight'] = 90;
     $form['context']['#access'] = FALSE;
-
+    $form['comments']['#access'] = FALSE;
+    $form['links']['#access'] = FALSE;
     $conf = $form_state['conf'];
     $item['title_link'] = array(
       '#title' => t('URL'),
