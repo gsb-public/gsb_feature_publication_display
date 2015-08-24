@@ -83,7 +83,9 @@ function gsb_feature_publication_display_panels_pane_content_alter($content, $pa
   if ($content && $content->subtype == 'publication_filters-panel_pane_1') {
     if (!empty($pane->configuration['title_link'])) {
       $url_parts = drupal_parse_url($pane->configuration['title_link']);
-      $content->title = decode_entities(l($content->title, $url_parts['path'], $url_parts));
+      // Don't sanitize the title. It will get sanitized later.
+      $url_parts['html'] = TRUE;
+      $content->title = l($content->title, $url_parts['path'], $url_parts);
     }
   }
 
