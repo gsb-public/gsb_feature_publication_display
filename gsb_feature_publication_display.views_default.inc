@@ -386,6 +386,7 @@ function gsb_feature_publication_display_views_default_views() {
   /* Display: Listing */
   $handler = $view->new_display('panel_pane', 'Listing', 'publications_listing');
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['exposed_form'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
   $handler->display->display_options['exposed_form']['options']['autosubmit_hide'] = FALSE;
