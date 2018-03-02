@@ -197,7 +197,7 @@ function gsb_feature_publication_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Content: Source Publication */
+  /* Field: Content: Publisher */
   $handler->display->display_options['fields']['field_publisher']['id'] = 'field_publisher';
   $handler->display->display_options['fields']['field_publisher']['table'] = 'field_data_field_publisher';
   $handler->display->display_options['fields']['field_publisher']['field'] = 'field_publisher';
@@ -836,7 +836,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['expose']['label'] = 'Author (field_person_fac_single_ref)';
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['expose']['operator'] = 'field_person_fac_single_ref_target_id_op';
   $handler->display->display_options['filters']['field_person_fac_single_ref_target_id']['expose']['identifier'] = 'field_person_fac_single_ref_target_id';
-  /* Filter criterion: Content: Circle (Centers and Research Programs) (field_centers_research_programs) */
+  /* Filter criterion: Content: Stanford GSB Affiliations or Initiatives (field_centers_research_programs) */
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['id'] = 'field_centers_research_programs_tid';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['table'] = 'field_data_field_centers_research_programs';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['field'] = 'field_centers_research_programs_tid';
@@ -1205,7 +1205,7 @@ function gsb_feature_publication_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Content: Source Publication */
+  /* Field: Content: Publisher */
   $handler->display->display_options['fields']['field_publisher']['id'] = 'field_publisher';
   $handler->display->display_options['fields']['field_publisher']['table'] = 'field_data_field_publisher';
   $handler->display->display_options['fields']['field_publisher']['field'] = 'field_publisher';
@@ -1502,7 +1502,7 @@ function gsb_feature_publication_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Content: Source Publication */
+  /* Field: Content: Publisher */
   $handler->display->display_options['fields']['field_publisher']['id'] = 'field_publisher';
   $handler->display->display_options['fields']['field_publisher']['table'] = 'field_data_field_publisher';
   $handler->display->display_options['fields']['field_publisher']['field'] = 'field_publisher';
@@ -2008,7 +2008,8 @@ function gsb_feature_publication_display_views_default_views() {
     161 => 0,
     166 => 0,
   );
-  /* Filter criterion: Content: Circle (Centers and Research Programs) (field_centers_research_programs) */
+  $handler->display->display_options['filters']['field_region_of_interest_tid']['vocabulary'] = 'region_interest';
+  /* Filter criterion: Content: Stanford GSB Affiliations or Initiatives (field_centers_research_programs) */
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['id'] = 'field_centers_research_programs_tid';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['table'] = 'field_data_field_centers_research_programs';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['field'] = 'field_centers_research_programs_tid';
@@ -2057,7 +2058,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['vocabulary'] = 'centers_research_programs';
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['hierarchy'] = 1;
   $handler->display->display_options['filters']['field_centers_research_programs_tid']['error_message'] = FALSE;
-  /* Filter criterion: Content: Keywords (field_tag) */
+  /* Filter criterion: Field: Keywords (field_tag) */
   $handler->display->display_options['filters']['field_tag_tid']['id'] = 'field_tag_tid';
   $handler->display->display_options['filters']['field_tag_tid']['table'] = 'field_data_field_tag';
   $handler->display->display_options['filters']['field_tag_tid']['field'] = 'field_tag_tid';
@@ -2125,7 +2126,6 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['allow']['path_override'] = 0;
   $handler->display->display_options['allow']['title_override'] = 'title_override';
   $handler->display->display_options['allow']['exposed_form'] = 'exposed_form';
-  $handler->display->display_options['allow']['exposed_form_configure'] = 0;
   $handler->display->display_options['allow']['fields_override'] = 0;
   $handler->display->display_options['exposed_form_overrides'] = array(
     'filters' => array(
