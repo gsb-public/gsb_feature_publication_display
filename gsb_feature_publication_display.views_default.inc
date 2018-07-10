@@ -376,6 +376,7 @@ function gsb_feature_publication_display_views_default_views() {
   $handler->display->display_options['filters']['field_publication_type_value']['field'] = 'field_publication_type_value';
   $handler->display->display_options['filters']['field_publication_type_value']['value'] = array(
     'journal_article' => 'journal_article',
+    'research_spotlight' => 'research_spotlight',
   );
   $handler->display->display_options['entity_type'] = 'node';
   $handler->display->display_options['bundles'] = array(
